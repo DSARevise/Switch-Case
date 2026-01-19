@@ -1,0 +1,252 @@
+static method
+1. static method does not require object to call. static belongs to class
+2. sOnly static variable we can call
+3. this and supewr we can not implement in static method
+4. basically used for memory management only
+5. stored only one time im memory 
+
+
+non static method
+1. requires object to call
+2. we can use this and super in this method
+3. we can call both static and no static variable as well as methods
+4. stores everytime in memory
+
+
+static block
+1. has the highest priority over main 
+2. we can initialize final static variable
+
+
+
+
+Packages
+Packages contains classes object enums interfaces
+
+Advantages
+1. Better code reusability
+2. better code readability.
+3. used to avoid naming collision and conflicats
+4. can be used to achieve the abstration
+
+
+
+
+PolyMorphism
+Polu == Many, Morphs == forms
+
+Representing one thing in many forms
+Basically there are tewo types of ploymorphism
+1. compile timeploymorphism
+2. run time ploymorphism
+
+1. compile time polymorphism == static method dispatch == static method binding == method overloading
+2. runt ime ploymorphism == dynamic method dispatch/binding/== method overriding
+
+
+Method overloading== giving multiple parameters in the argument of method
+method overeriding= suppose there are two class where child class is extending the parent class and in child class having the same method with same signature as of parentclass then here method in child class will override thge metthod in parent class
+
+
+
+
+
+Exception Handling
+1. Exception handling is the robust mechanism to handle the exception that may arise during the execution and that can affect the normal execution flow of program.
+2. there are basically two types of execptions
+a. checked exception
+b. unchecked exception
+
+checked exception
+1. checked exception are those that can be found at compile time.
+2. Exception are like SQLException, IO exception, classNotFoundException
+
+Unchecked exception
+1. unchecked exception are those which may arise during runtime and can affect the normal flow iof application
+2.exceptions like arrayIndexOutOfBoundException, NullPointerException, stakcoverflow excpetion
+
+we handles the exception using try, catch and finally block. There are throw and throws keyword which is basically used to throw the excpetion
+finally block :Finally block will always execute whether error handled or not
+Difference between error and exception
+error
+1. errors are those which application might not be able to catch
+
+Exception
+1. Exception are those which application  might be able to catch and resolve 
+
+printStackTrace()== use to print the error messsage
+
+difference between throw and throws
+throw
+1. throw is used to explicitly declare teh excpetion
+2. we cannot call multiple exceptions
+3. followed by instance and decalred within the method
+
+throws
+1. throws isused to declare the excpetions
+2. used wiht method signature
+3. we can call multiple exceptions
+
+Parent class of all the exceptions is THROWABLE
+
+
+
+Multithreading
+Executing multipl thread at a single time
+Thread : separaate part of program
+
+Parent class of Thread is Thread
+It share the common memeory area
+
+
+Collections
+Collection : is a framework that provodes architecture to store an dmanipute group of objects
+In simple words, collection si a group of individual  objects that treated as a single unit
+
+Collection is an interface that contains 3 interfaces
+1. List
+2. Set
+3. Queue
+Map is differebet
+
+1.List
+List is an interface that contains classes and we use when duplicate values are allowed and insertion order is preserved
+
+In List
+1. Insertion order is preserved
+2. Null Vaalues are allowed
+3. Heterogenous and homogenous values are allowed
+4. duplicates are allowed
+
+List contains 4 classes1. ArrayList
+2.LinkedList
+3.Vector
+4.Stack
+
+1.ArrayList
+1. ArrayList can grow dynamically
+2. ArrayList uses resizable array data structure
+3. It is used for fast data fetching
+4. Insertion order is preserved and null values are allowed
+
+2.Linked List
+1. Linked List uses doubly linked list data structure
+2. Used for fast insertion and deletion
+3. duplicates are allowed
+4. maintains insertion order
+
+3.Vector
+1. vector uses dynamic array data structure
+2. Vector maintains insertion order
+
+4. Stack
+1. Stack uses lifo(last in first out) data structure
+2. Maintains insertion order
+
+Iterator
+Iterator is basically used to iterate the elments in collection
+Iterator itr=arrayList.Iterator();
+	
+	
+Internal Working of arrayList
+1. Default capacity of arrayList is 10;
+2. whenever we create arrayList it immediately creates array of size 10
+3. If the arrayList is filled by 75% then it basically increases the arrayList by 50%
+4. It does not increases by 50% it directly creates new array of size more than 50% of last array and the copies all the elements in new array
+
+difference between array and arrayList
+array
+1. Collection of similar type of data
+2. Allows only homogenous values
+3. fixed in size
+4. can not dynamically grow or shrink
+
+
+arrayList
+1. Can storew both similar and as well as multiple type of data
+2. can dynamically grow or shrink in nature
+3. dynamic in size
+4. allws heterogenous values
+
+
+difference between arrayList and linkedList
+
+ArryList
+1. ArrayList is used for fast fetching 
+2. Manipulation is slow since there is a concept of shifting
+3. can allow duplicate and uses resizable array data structure
+4. insertionorder is preserved
+5. non synchronized
+
+linkedList
+1. LinkedList uses doubly linked list data stucture
+2. LinkedList manipualtion is fast as there is no concept of shifting
+3. LinkedList is best for insertion and deletion
+4. insertionorder is preserved and 
+5. non synchronized
+
+
+
+Set
+A interface in collection interface that basically does not allows rhe duplicate elements only allows unique elements.
+
+Basically there are two class
+1. HashSet
+2. LinkedHashSet
+3. TreeSet
+
+1. HashSet
+1. Hashset uses hashtable data structure
+2. It does not follows the insertion order
+3. Only one null is allowed
+4. duplicates are not allowed
+5. It basically print the elements bassed on their hashcode
+
+
+2. LinkedHashSet
+1. Uses doubly linked list + hashtable data structure
+2. Maintains Insertion order
+3. Only allows unique values
+4. does not allows duplicate values
+
+
+difference between hashset and linkedhashset
+HashSet
+1. Hashset follows hashtable data structure
+2. It does not follows insertion order
+3. It does not allows duplicate values
+4. It prints the values bases on their hashcode
+
+LinkedHashSet
+1. LinkedHashSet uses doubly linked list + hashtable data stucture
+2. maintains the insertion order
+3. does not allows duplicates 
+4. allows only one null value
+
+TreeSet
+1. Treeset works on binary tree data structure
+2. It follows the natural order and prints in natural Order
+3. It allows only Homogeneous values
+
+Map
+1. Map is an interface that basically takes key value pair and insertionis done on base of keys
+
+there are three classes
+1.HashMap
+1. HashMap basically takes key value pair
+2. It inserts the elements based on the key 
+3. only one null key is allowed and multiple null values are allowed
+
+Linked HashMap
+1. Linked hashMap used doubly linked list data structure
+2. Basically It does noit allows duplicate key values
+3. It maintains the insertion order
+4. In hashmap, hashmap does not maintains the insertion order. It inserts based on the key natural order
+
+TreeSet
+1. Allows only Homogeneous values
+2.Sorting is done in natural order
+3. It displayes in ascending order
+4. It does allows key to be null
+
+since the soreting is done in ascending order, it does not allows nulll values
