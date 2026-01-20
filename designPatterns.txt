@@ -1,0 +1,91 @@
+Solid Resposibility principle
+1. S --> Single Responsibility principle
+Each class  should have single responsibility
+
+2. O- Open closed principle
+Class, Modules, functionalities should be open for extension but not for modification
+
+3. Liskov Subsititude principle
+Child class should replace  the parent class without breaking the behaviour of class
+
+4. I - interface segregation Principle
+Clients should not be forced to depend on the interface they do not want to use 
+
+5. D - dependency inverion principle
+High level module should not depend on low level module. Both should depend on abstractions
+
+
+
+Design Patterns
+There are three types of design patterns
+1. Creational design patterns
+Creational Design pattern provides various object creation mechanism, increases flexibility and better code reusability
+
+a. Singleton
+Lets you to ensure class should have a single instance, providing global access to the instance
+
+b. Prototyoe
+Lets you to copy the existing objects without making your code depedent on their classes
+
+c. Abstract Factory
+Lets you to create the families of related objects without specifying their concrete classes
+
+d. factory method
+Provies an interface for creating objects in superclass but allows subclass to alter the type of object that will be created
+
+e.Builder 
+Builder allows you tp produces different types and representations on objects using the same construction code
+
+2. Structural Design Patterns
+Structural Design Pattern explains how to assemble the objects and classes into larger structure while keeping this structure flexible and effiecient
+
+a. adapter
+Allows the objects with incompatible interfaces to collaborate
+
+b Bridge
+Bridge lets you to split the classes or set of closely related classes into two seperate hierarchies implementationa and abstraction which can be developed independently of each other
+
+c. Compose
+Let you to compose the objects into three like structure and then work on this structure as if they are individual
+
+d. Decorator
+Lets you the attach new behaviours to the objects by placing it in special wrapper objecs that has the behaviour
+
+e. facade 
+Provides a simplified interface to a library, framewrok or set of complex classes
+
+f. flyweight
+Lets you the store the more objects into the available RAM by sharing common parts of state among multiple objects instead of keeping the data in each object
+
+g.proxy
+Proxy allows you to keepthe placeholder for the object. Proxy has the access of original objects, allows you to peform something before or after the request getsthrought the original objects
+
+
+
+
+Behavioural Design Pattern
+Bahvioural design pattern deals with objects communication and interaction defining how objects collaborate and distributes responsibilities to manage compl;ex workflows, batter code reuasbility and make code flexible
+
+
+a. Visitor
+Lets you to seperate alogorithms from object which they operate
+
+b.Iterator
+Lets you to traverse the elements of collection which exposing their underlyinh representations
+
+
+c. Mediator
+Lets you to reduce chaotic dependencies betweeen objects. It reduces the direct communication betweenthe objects and force them to collaborate via mediator object
+
+d. Observer
+Lets you to define the subscription mechanism to notify the multiple objects about any event that may happen to the object they are observing
+
+e. state 
+Lets an object alter its behaviour when the internal state changes. it appears as if the object has changed the class
+
+
+
+
+
+
+
