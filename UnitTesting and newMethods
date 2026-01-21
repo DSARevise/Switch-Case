@@ -1,0 +1,43 @@
+Unit Testing 
+Unit testing is a testing technique whihc is used to test the smallest part of program independently and and automatically
+
+
+Adaptability
+1. Maintains the quality of program
+2.Tests each funcionality
+3. Main intention is to find the locical bugs in the program
+4. Not time-consuming
+
+
+Junit
+Junit is the testing framework in java used to test the individula logic of program
+
+Basic annotation in junit
+
+@Test == Test Method
+@BeforeAll -- indicates to apply before all the methods
+@BeforeEach -- indicates to apply before each methods
+@AfterEach -- indicates to apply after each methods
+@AfterAll -- indeicates to apply after all methods
+@DisplayName == Indicates name 
+@Disabled == skips test  case
+@Tag == Basically used to give the tags or names to the method
+
+to print the tags we will require the instance of TestInfo testInfo 
+then there is a method called testinfor.getTags();
+
+Lifecycle order
+BeforeAll 
+BeforeEach
+Test
+AfterEach
+AfterAll
+
+Common Methods
+1.AssertEquals -- check the value is matching or not
+2. AssertTrue -- return true if the condition is true and passes the test case
+3.AssertFalse -- return true if the condition is false
+4. AssertsNull -- passes the test case if the value is null
+5. AssertsNotNull -- passes if the value is not null
+
+
