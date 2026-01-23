@@ -1,0 +1,195 @@
+Servlets
+Servlets are the java program that extends the capabilities of physical server to build the web application
+Basically there are two main Interfaces
+
+1.HttpServletRequest
+2.HttpServletResponse
+
+Servlet methods
+init()-- once called  Handles servlet resources
+doPut()-- basically used to update operations
+doGet()-- to get the operations
+doDelete()-- to delete the operations
+doPost()-- to post the operations
+doDestroy()-- destroys/cleanup before the servlet is destroyed
+
+Servlet Lifecycle
+Init()-- called once
+Service() -- called for handling the client request
+Destroy() --- cleanup before the servlet is destroyed
+
+To print on the webpage we can use printWriter out=request.getprintWriter();
+out.println("Hello Welcome to my page")
+
+Forwarding or Redirecting 
+For forwarding we use  RequestDispatcher dispatch=request.getRequestDispatcher();
+request.getRequestDispatcher("page.jsp")
+       .forward(request, response);
+
+
+for redirecting we use response.sendRedirect(" ")
+
+	 Note --- In old web.xml we use to give <url-pattern>pattern</url-pattern> in web.xml
+	Now we directly gives @WebServlet("/employee") -- url
+
+To get a particualar parameter
+we can use request.getParameter("Para_name");	
+
+
+
+Session Management
+Sessions are the series of request and responses between client and the server during a period or for a particular period of time
+
+Httpsession s=request.getSession()
+
+session.getAttribute("username","Rajat");
+URLRewriting
+encodeRedirectURL
+
+
+Cookies==
+cookies are the small piece of data stored in the client browser by the server for a particular period of time
+we have to set the maximu age of cookies(in seconds)
+
+1. It is key value pair
+2. Used to maintain the state in stateless protocol
+3. stores the data like login credentials, preferences
+
+Cookie cookie=new Cookie("username","username");
+cookie.setMaxAge();
+
+Add cookie in response
+response.addCookie(cookie)
+
+
+Filter == Any class thet implements filter
+Filter is a component that intercepts request and response between the client and the server
+It prerprocesses the request before it reaches to the target and postprocesses the rquest before it reaches to the cleint
+
+
+Lifecycle
+init() -- called once when the filter is created
+service() -- called for every request
+destroy() -- called once when the filter is destroyed
+
+
+Annotation @Webfilter("/*") == Applies for all the url
+chain.dofilter(request, response) passes request and response to next filter
+
+
+JSP
+Java Server pages is a server-side voew technology used to create dynamic web pages using HTML, Expression language and tag libraries. 
+-->JSP supports tag libraries
+
+Internal flow
+Browser request .jsp file
+container translates jsp->servlet 
+container compiles servlet
+servlet executes 
+HTML response sent to the client
+
+Note : JSP is internally converted to the servlet
+
+Lifecycle of JSP
+1. Traslation (JSP->Servlet)
+2. Compilation
+3. Loading
+4. Instantiation
+5. _jspinit()
+6. jspservice()
+7. jspdestroy()
+
+Old Tags in JSP(Deprecated)
+Scriplates tag -- <% String name =" Rajat"%>
+Declaration Tag -- <%! int count=0;%> 
+Expressions tags <%= name %>
+
+
+
+JSTL 
+JSP standard tag library is the set of standards tags to perform logic in JSP without java code
+
+Some JSTL Core  Tags:
+To print  -- <c:out value ="${name}" />
+to set the variable <c:set var="x" value=10/>
+If condition : <c:if test ="${salary=100}"> High salary</c:if>
+
+switch case -- <c:choose> <c:when><c:otherwise>
+
+<c:choose>
+<c:when test="${role== 'Admin'}> Admin </c:when>
+<c:otherwise> Normal User</c:otherwise>
+</c:choose>
+
+ForEachLoop
+<c:forEach var="emp" items ="${empList}">${emp.emp_name} -- ${emp.emp_city}</c:forEach>
+
+JSTL funcation tags -- fn:
+${fn: length(empList)}
+
+
+WebSocket
+Websocket is a persistent communication protocol over single TCP connection
+This basically enables
+1. server push
+2. real time updates
+3. low latency
+
+Problem
+Client keeps asking if there is any new data without websocket
+with websocket --> new message --> server push --> client 
+
+Advantages
+Fast
+Efficient 
+Not time consuming 
+low latency
+Persistent --long live
+
+
+Methods available
+@OnOpen -- client connects
+@OnMessage -- message received
+@OnClose --  client disconnects
+@OnError -- error occurs
+
+Scaling Websocket to the enterprise level may be difficult
+We will need to use Redis, Kafka , Horizontal Scaling 
+
+Use Cases of websocket
+1. Chat Messaging
+2. Live cricket score
+3. Live dashboard
+4. Notifications
+
+
+
+Difference between HTTP and WebSocket
+Http
+1. Unidirectional where cleint send the request and server sends the response 
+2. Short Lived
+3. Higher latency, due to overhead of new connections setup and headers for each request and response
+4. Stateless, handles the request without keeping the track of past interaction 
+5. Protocal overhead is high as each request contains the HTTP headers
+6. http or https
+
+Websocket
+1. BiDirectional -- where client and server can send messages to each other independently
+2. Long lived, as it is connected via a single TCP(Trasmission control protocol) connection remains unterminated until it is terminated by either party
+3. Low latency -- as the data is transfered over an existing connection wiht minimal overhead
+4. Stateful -- server keeps teh track of exisitng connection / active connection enabling easier sessiion management
+5. Protocla overhead -- low after initial handshake
+6. ws  or wss 
+
+
+
+Q. What is web socket handshake
+-->Websocket handshake is the initial http process where client and server upgrades to new fully duplex persistent websocket connection using 101 switching protocol response.
+
+
+
+What status code is used ?
+101-->switching protocols
+Why not start directly wiht websocket?
+Browser requires the Http and HTTPS
+
