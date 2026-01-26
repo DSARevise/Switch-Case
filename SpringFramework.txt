@@ -1,0 +1,174 @@
+Spring :
+Spring is a light weight, modular, open source jaav framework used to build enterprise applications
+
+Spring provides
+Dependency Injection
+Inversion of control
+Web MVC
+Transaction management
+
+Advantages of spring 
+1. Loose coupling
+2. Easy Testing
+3. Light weight container
+4. pojo programming
+
+Layers of Spring Architecture
+1. Presentation Layer (Controller)
+Acts as entry point for RestFul API requests. handles json conversion, handles input validation, interacts with the service layer usign @restcontroller or @controller
+
+2.Business Layer(Service)
+Contains all the business logic , transaction control etc often annoted with@Service
+
+3. Persistance layer(DAO/Repository)
+Manages database access, insertin reading storing etc using spring data JPA, JDBC Template, Hibernate often denoted as @Repository
+
+
+Spring Framework
+Spring framework is the lightweight, open source framework that provides comprehensive infrastructure to build enterprise applications.
+It is basically a foundation for 
+Spring boot
+Spring Security
+Spring Cloud
+Spring MVC
+
+
+Core concepts of Spring Framework
+1 Dependency Injection
+Dependency Injection are the design pattern in which object's depedencies are provided from outside instead objects creating it itself; DI is a part of IOC.
+
+Dependency injection helps to achive 
+Loose Coupling
+Easy testing
+Easier to manage complex depedencies
+
+Types to achieve dependency injection
+1.By contructor
+2. By Setter Injection
+3.By Field Injection : Injecting directly into the fiedld we canuse @Autowired as well here
+
+Note : when there are multiple beans we can use @Qualifier
+
+
+2. Inversion Of Control
+Inversion of control is the design principle in spring framework where the control of object creation and lifecyle is being transferred from the application code to the container or framework
+In simple words, spring IOC is repsonsible for when to create the objects aand when to wired them together. Framework basically creates and manages the object for you.
+
+Advatages:
+1. Loose Coupling
+2. Better and easier to maintain the complex code 
+3. Framework controls lifecyle
+
+
+Types to achieve IOC
+1. Dependency Injection
+2. Factory Pattern (old / rare) uses ApplicationContext or beanfactory
+
+
+ApplicationContext container= new AnnotationConfigApplicationConext(Config class)  -- Mostly used
+Employee e=container.getBean(Employee.class)
+
+Spring Bean 
+A bean is an objects that is being created, confirgured and managed by IOC container
+
+How spring decides which bean to injection
+1.By Name
+2. By Type
+3. @Qualifier
+4. @Primary == makes the bean as default bean
+
+
+Stereotype Annotations 
+Stereotype annoattions are the specail spring annotations used to mark the class as spring managed bean and indicates a role in application infratructure
+
+Inshort It tells spring ioc to create and maintain the object of thuis class
+Stereotype annotations available in spring ioc
+@Component : Marks the class as component/mode
+@Service : Indicates the service class
+@Repository : Indicate the dao class where the database logic/connection will be available
+@Controller : used for controller class
+
+@Configuration : makes a class as a source class for all the bean definitions
+@ComponentScan(BasePackage:" ") --Looks out for the classes that have stereotype annotations
+@Bean -- used for legacy method which can not be modified  
+
+@Primary : used to mnake the deafult bean
+@Qualifier : if there are bean with same name, then we can give the qualifier name to the bean
+
+Deafault scopes for pring IOC
+@Singleton : Single object created for IOC Container
+@Prototype : Object cleated everytime when the request has been made 
+@Session : One object poer session
+@Request :One object per request
+@Websocket :One object per websocket
+
+
+
+@Autowired
+@Autowired annotation is used to automatically injects dependency into the spring bean 
+In simple words, spring find the required bean and injects it automatically
+
+We do not need to create the object
+
+@Autowired can be used in three type 
+By using constructor
+By setter injection
+By field injection
+
+Types to achieve the autowiring 
+1. By Name :Looks for the bean with same name
+2. By Type :Looks for the bean with same type
+3. @Primary
+4. @Qualifier
+
+
+
+Spring JDBC Template
+JDBC template is a utility class in spring that simplifies jdbc programming by handling database connection, transactiona nd database operations
+
+Advantages
+1.Reduces BoilterPlate code
+2.Easily integrates withe the spring DI
+3. Provides easy methods to perform CRUD operations
+4 Easiness for hnadling exceptions
+
+
+Lifecycle
+1. Gets connection from datasource
+2. creates preared statemnt
+3. Execues statement
+4. Iterates the result into result
+5. Handles the exceptions
+
+Dependency required
+Spring jdbc driver
+SQL connector
+Spring context
+
+Methods available in spring jdbc template
+1. update -- insert, update, delete
+2. QueryForObject -- getById
+3. Query == for select all
+
+For fetching any data from the database, we will require the object of rowmapper
+Rowmapper  == is an interface that basically tells jdbc how to map each row from resultset into java objects
+
+In rowmmaper we sets the value using the setter by getting the property
+
+AppConfig.class
+@Configuration -- make the class as source class for all the bean definitions
+@ComponetScan(basePackage =" ") -- basically looks out for all the stereotype annotations
+@PropertySource("classpath : ") -- basically used to get all the properties from .properties file
+
+@Autowired -- used to automatically inject dependency into the object rather than creating it manually
+Environment env -- environment is a legacy class that is being used to load the properties and allowsw spring to read the property from .properties file
+
+@bean -- used to get the legacy class
+Datasource == datasource is the interface tthat is called as the source of database connections
+the datasource we basically get all the databse properties by creating the obejct of DriverManagerDataSource 
+
+In DAO 
+we first get the JDBCtemplate object by autowiring 
+
+
+

@@ -193,3 +193,6 @@ What status code is used ?
 Why not start directly wiht websocket?
 Browser requires the Http and HTTPS
 
+For scaling websocket
+We can use redis sub/pub or RabbitMQ and reverseProxy as well
+
