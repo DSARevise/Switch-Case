@@ -1,0 +1,51 @@
+Aspect Oriented Programming
+Aspect Oriented Programming is a programming paradigm that is used to seperate the cross cutting concerns from the application
+
+Cross Cutting Concerns
+Cross cutting concerns are the part of program that may affect the multiple module of program and that doesn't belong to the main business logic of application
+
+
+Advantages of AOP
+1. Reduces code duplication
+2. Code Redability
+3. Increases code resuability
+4. Better code maintainability
+
+Cross Cutting concerns such as 
+1. Logging
+2. Authentication/Authorization
+3. Security
+4. Transaction Management
+
+Core concepts of AOP
+@Aspect == class that contains the AOP logic
+@JoinPoint == a point during the execution of program where the advice can be applied
+@PointCut == An expression that selects which methods to intercept
+@Advice == Actual code that runs at the joinpoint 
+Weaving == the process of linking aspects with the target object
+Proxy (VVIMP) == Spring basically creates a proxy object around you bean
+
+
+Types of advices
+@Before == before every method
+@After== after every method
+@AfterReturning == After successful execution
+@AfterThrowing == after throwing an error
+@Around == Around the original method. It basically wraps the original method . It requires ProceedingJoinPointObject .  It is the objects that represents the target method is being intercepted
+
+Dependencies required 
+Spring Context
+Spring aop/ spring boot aop
+
+Interview Questions
+@Order == use @Order to control the precedence of objects
+
+What is an advisore?
+Combination of advice and pointcut
+
+Can private and final methods be advised?
+No, Private method can not be advised because theya re not proxied
+No , Final methods can not be advised as they can not be overriden by proxies
+
+Is @EnableAspectJAutoProxy required in spring boot
+No, spring boot auto configure it
