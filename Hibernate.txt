@@ -1,0 +1,99 @@
+Hibernate
+Hibernate is a ORM(Object relational Mapping) framework that simplifies database intercation by mapping java objects into database tables automatically and automatically handling crud operations, transaction management , object-relation mapping and sql generation.
+Hibernate is built on top of JDBC template
+
+Advantages of using hibernate
+1. Reduces Boilerplate code
+2. Improves developer productivity
+3. handles object - relational ampping
+4. give independenc to tables
+5. supports transaction management
+
+
+ORM - Object Relational Mapping
+ORM is a technique that basically maps the java objects with the relational database tables automatically so that developer can work on directly objects instead of sql queries
+
+Hibernate Architecture
+
+Application -> Session Factory -> Session -> Transaction -> Database
+
+Session Factory -- Heavyweight and one per database
+Session -- lightweight and per request
+transaction -- transaction manages ACID properties (Atomicity, Consistency, Isolity, Durability)
+
+
+Hibernate Configuration
+1. XML (hibernate.cfg.xml)
+2. Annotation + properties (Spring boot)
+
+
+Annotations available in the hibernate
+@Entity - makes the class as a persistent entity mapped to the database tables
+@Id - Primary Key
+@GeneratedValue -- PK Generation 
+@Transient -- Ignore field
+@Table - Table mapping (can give name to the table)
+@Temporal - date mapping
+@Enumerated - enum mapping
+
+
+Primary key generation stratergies
+1. Auto
+2. Identity -- Auto increment
+3. Sequence 
+4. table -- table based
+
+session methods
+save() -- insert methods
+saveorupdate () -- insert or update
+delete() -- delete
+get () --fetch immediately 
+load() -- lazy loading
+persist() -- insert(JPA)
+
+
+Difference between get and load
+get()
+1. fast loading
+2. returns null if no value is fetched
+
+load()
+1. lazy loading
+2. return exception if no value is there exception ObjectNotFoundException
+
+
+Dependencies required
+1.Hibernate core  hibernate 5 for 
+2. mysql connector
+3. javax persistance api
+4. javax transaction api
+
+
+
+HQL 
+Hibernate query language is the language whch is used to write the query using properties instead of databse tables and columns
+
+Types
+1. Native SQL Query
+Query query = session.createQuery("select p from Products p");
+
+2. Named Query
+@NamedQuery(name="AllProducts", query="select p from Products p");
+@NamedQuery(name="sortByName", query ="select p from Products p where p.name=:name");
+
+in main class 
+TypedQuery<Products> query=session.getNamedQuery("sortByName");
+query.setParameter("productName","Redmi");
+
+---will fetch the result where product name ="redmi"
+
+
+3.Critera Query == legacy method to get the data without writing HQL query
+Criteria criteria= session.createCriteria(Persistance class);
+criteria.add(Restrictions.eq("productValue", 50000.00));
+
+-- wil fetch all teh results whose value is 50000.00
+
+eq= equals
+gt= greater than
+ls= less than
