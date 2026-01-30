@@ -1,3 +1,22 @@
+Maven :
+Maven is a powerful porject management and comprehensive tool that is basically used to develop the java project simplifies depenency management, build automation and documentation.
+
+In short: maven is used to manage the project depedencies and build automation.
+
+Group Id -- Organizarion\Package Name
+ArtifactId -- Project Name 
+Version -- project Version
+
+Advantages of Maven
+1.Manages depedencies automatically
+2. Simplifies version management
+3. Integrates with CI/CD
+4. Automates build lifecycle
+5. Handles Transitive dependencies
+
+
+
+
 Spring :
 Spring is a light weight, modular, open source jaav framework used to build enterprise applications
 
