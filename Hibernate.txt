@@ -97,3 +97,32 @@ criteria.add(Restrictions.eq("productValue", 50000.00));
 eq= equals
 gt= greater than
 ls= less than
+
+
+Hibernate RelationShips
+
+1. OnetoOne --> @OnetoOne Unidirectional
+
+
+Owning side --> Controls FK (Foreign key)
+Inverse side --> mappedBy
+Fetch Type --> LAZY vs EAGER
+Cascase Types  --> All -- contains all thge JPA operations
+					PERSIST -- When a  new parent entity is persisted, child entity will persist automatically
+					DETACH --> When parent entity is detached , child entity gets detached
+					Remove --> Any Remove operation happened at parent entity, child entity will also perform remove automatically
+					Merge --> When any detached parent entity is merged, child entity is also merged
+					
+					
+2 Many to One or One to Many
+Manages parent child relationship. One child can have multiple parents and one parent can have multiple childs
+
+
+OrphanRemoval = True (If weill automatically delete child entity when no longer referred to the parent entity
+
+@OneToMany / @ManyToOne
+
+
+2. Many to 	Many 
+@ManyToMany
+Records of one table can be associated with the multiple records of another table.
