@@ -1,0 +1,70 @@
+Spring boot
+Spring boot is built on the top of spring framework that simplifies development of spring application by providing auto configuration, embedded serves and production ready code so that developer need to only focus on the business logic not on the configuration.
+
+Spring Boot== Spring Framework + Auot Configuration +Embedded server +Production ready code
+
+
+Advatanges
+1. Production Ready Features
+2. Embedded Server
+3. Auto configuration
+3. Easy Testing support
+5. Microservices friendly
+
+How Spring boot application internally Works
+@SpringBootApplication has 3 annotation embedded
+@Configuration, @ComponentScan, @EnableAutoConfiguration
+
+
+Spring MVC(Model View Controller)
+Spring MVC is a web framework based on model view controller design pattern that separates UI, Business logic and requests handling enabling clean maintainable and scalable web applications
+
+Controller internlly uses Servlet. Controller handles all the requests.
+
+
+Spring MVC Architecture
+Model -- Business Data/ Proeperties
+View -- UI
+Controller -- request handler
+
+Request flow in Spring MVC
+Client -> DispatcherServlet ->HnadlerMapping -> controller -> service ->DAO -> controller -> ViewResolver -> View(JSP/HTML)
+
+DispatcherServlet is the heart of Spring MVC.
+DispatcherServlet handles
+1. receives request
+2. Delegated to the controller
+3. Resolves view
+4. Returns response
+
+
+Core Spring MVC components
+1. DispatcherServlet
+	Front controller
+
+2. HandlerMapping 
+Maps URL - controller method
+
+3. controller
+Handles request methods
+
+4. Model
+Takes data to the view
+
+5.View Resolver
+Maps logical view name - actual view file
+
+
+Annotaions in spring MVC
+
+@Controller- =marks the class as SPRING MVC Controller
+@ResponseBody == whenever print message use responsebody  sends raw response
+@RequestParam == takes the parameters from form
+@PathVariable == takes value from the url
+@Requestmapping == maps url== controller method both method and class level
+@ModelAttribute == Binds data directly to the java object
+For Exception Handling
+@ExceptionHandler -- controller method level exception handling
+@ControllerAdvice -- global level exception handling
+
+@EnableSpringMVC -- enables spring mvc manually
