@@ -1,0 +1,89 @@
+Spring REST
+Spring REST is a module in Spring Framework basically used to create restful web services that expose resources over HTTP using HTTP standard methods and exchange data mainly in JSON format.
+
+What is REST (Representational State transfer)
+Rest is a architectural style for designing destributed system where the resource are exposed by the URLs and manipulated by using standard HTTP mnethods.
+
+Why Only spring REST?
+Spring REST simplifies the development of restful web services by providing annotations, automatic conversion to JSON, better exception handling and tight integration with Spring BOOT and Spring Data JPA.
+
+Advantages of using Spring REST
+1. Automatic Conversion to JSON(serialization and desrialization)
+2. Easy and better exception handling 
+3. Reduces Boilerplate Code
+4. Easy request Mapping 
+
+In short,
+REST api Basically allows multiple/ heterogeneous technologies to interact/connect with each other.
+rest can send any type of data xml, text, image etc
+
+Annontations
+@RestController -- specialized annontation that combines both @Controller and @ResponseBody allows method to directly map the data instead of views.
+@GetMapping -- to get the resource
+@PostMapping --creates the new resource
+@PutMapping -- update the existing respurce completely
+@PatchMapping -- update the existing resource partially
+@DeleteMapping -- delete the existing resoource
+@RequestMapping -- to map the url
+@PathVariable -- take the data from the url 
+@RequestParam -- reads query parameter from the URLs
+
+
+GET is idemPotent and post is not
+Idemponent : is an operation that can be applied multiple times without changing the output
+
+Rest follows Stateless Protocol
+Rest has stateless protocol means the server does not store any client data during request
+
+What is ResponseEntity
+A class the returns complete HTTP resource including HTTPStatus code , headers and body
+
+How JSON conversion happens?
+-->Spring uses Jackson ObjectMapper to convert java objects to JSON
+Serialization --> Java -->json
+Deserialization --> JSON --> Java 
+
+
+
+Spring DATA JPA(Java Persistance API)
+
+Spring Data JPA is a module of Spring the eliminates boilerPlateDAO code and lets you to interact with databases using JPA and repository abstractions.
+You just have to write interfaces and spring does the rest
+
+Advantages 
+1. Database Independence
+2. Massive reduction of boilerplate code
+3. Repository abstractions
+4. Easy integration with Spring  boot
+5. Automatic Transaction management
+6. Powerful query methods
+7. JPQL and native query
+8. 	Built in pagination and sorting
+
+Repository 
+Create an interface and extends JPARepository(class name, primary Id datatype)
+
+The moment you create an interface you get following methods
+save(),
+findAll()
+findById(),
+deleteById(),
+delete(),
+count()
+
+Repository  Hierarchies
+
+Repository(Marker) --> CRUDRepository --> PagingAndSortingRepository --> JPARepository 
+
+Marker/ tagged Interface --> Marker Interface has only one abstract method
+
+
+CRUDrepository == provides basica CRUD operations
+PagingAndSortingRepository ==> Provides better support for paging and sorting
+
+
+JPARepository --> flush, batch, saveALL, deleteInBatch
+
+Always use JPARepository
+
+TO create any method we can use findByand then property Name --> magic of spring data jpa

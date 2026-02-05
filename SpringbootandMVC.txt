@@ -68,3 +68,5 @@ For Exception Handling
 @ControllerAdvice -- global level exception handling
 
 @EnableSpringMVC -- enables spring mvc manually
+
+If two controller have sameURL then it will throw AmbiguousMappingException
