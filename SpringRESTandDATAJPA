@@ -87,3 +87,18 @@ JPARepository --> flush, batch, saveALL, deleteInBatch
 Always use JPARepository
 
 TO create any method we can use findByand then property Name --> magic of spring data jpa
+
+Pagination 
+Pagination is a process that divides larger datasets into smaller one to fetch data one at a time
+
+There are commonly 3 types of  pagination
+1. Offset based pagination
+Basically used for smaller and static dataset
+
+2. Cursor based pagination 
+Suitable for dynamic dataset 
+Best for large dataset and real time performance
+
+3. Bidirectional Pagination
+Sutaible in case of ui requires forward and backward operations.
+Pageable is an interface which is basically used for pagination
